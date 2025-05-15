@@ -21,7 +21,7 @@ namespace ShopMate
                           options.LoginPath = "/Account/Login";
                           options.LogoutPath = "/Account/Logout";
                           options.AccessDeniedPath = "/Account/AccessDenied";
-                          options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                          options.ExpireTimeSpan = TimeSpan.FromDays(3);
                           options.SlidingExpiration = true;
                           options.Cookie.HttpOnly = true; // prevent access via js
                           options.Cookie.SecurePolicy = CookieSecurePolicy.None; //https only
@@ -29,8 +29,9 @@ namespace ShopMate
 
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = TimeSpan.FromDays(1);
                 options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
 
             var app = builder.Build();

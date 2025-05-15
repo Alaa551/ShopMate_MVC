@@ -183,47 +183,34 @@
 							@if (User.Identity.IsAuthenticated)
 							{
 
-/* 								var profileImage = User.Claims.FirstOrDefault(c => c.Type == "ProfileImageClaim").Value;
- */							
+								var profileImage = User.Claims.FirstOrDefault(c => c.Type == "FullProfileImageUrl").Value;
 								<div class="dropdown">
-									<button class="btn dropdown-toggle user-dropdown-toggle" style="background-color:transparent;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<img class="rounded-circle" width="50px" src="" alt="">
+									<button class="btn dropdown-toggle" style="background-color: transparent; padding-left: 10px; border: none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<img src="@profileImage" alt="User" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
 									</button>
+
 
 									<div class="dropdown-menu dropdown-menu-right user-dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<!-- Centered User Info -->
 										<div class="dropdown-header text-center">
-											<img class="rounded-circle" style="border-radius:8%;" width="100px" src="" alt="">
+											<img class="rounded-circle" style="border-radius:8%;" width="100px" src="@profileImage" alt="">
 											<p class="user-name">@User.Identity.Name</p>
 										</div>
 										<div class="dropdown-divider"></div>
 
-										@if (User.IsInRole("Customer"))
-										{
+										
 											<a class="dropdown-item" asp-action="Profile" asp-controller="Account">
 												<i class="zmdi zmdi-account-circle icon-style "></i> Profile
 											</a>
-										}
+										
 
 										<a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">
 											<i class="zmdi zmdi-lock icon-style "></i> Change Password
 										</a>
 
-										@if (User.IsInRole("Admin"))
-										{
-											<a class="dropdown-item" asp-action="Index" asp-controller="Admin">
-												<i class="fas fa-user-shield icon-style"></i> Admin
-											</a>
-										}
-
 										<div class="dropdown-divider"></div>
 
-										 <!-- <form asp-controller="Account" asp-action="Logout" class="text-center">
-											<button type="submit" class="dropdown-item text-danger">
-												<i class="zmdi zmdi-power icon-style"></i> Logout
-											</button> 
-										</form> -->
-
+									
 										<button  class=" dropdown-item ">
 											<a asp-action="Logout" asp-controller="Account" class="center text-danger"> <i class="zmdi zmdi-power icon-style"></i> Logout </a>
 										</button>
