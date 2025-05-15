@@ -26,12 +26,12 @@ body {
 
 .form-control {
     font-size: 1.2rem;
-    padding: 32px 15px;
-}
+/*    padding: 13px 15px;
+*/}
   
   .half, .half .container > .row {
-    height: 100vh;
-    min-height: 700px; }
+/*    height: 100vh;
+*/    min-height: 700px; }
   
   @media (max-width: 991.98px) {
     .half .bg {
@@ -50,7 +50,7 @@ body {
       -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
       border-radius: 4px;
-      height: 54px;
+      height: 50px;
       background: #fff; }
       .half .contents .form-control:active, .half .contents .form-control:focus, .half .bg .form-control:active, .half .bg .form-control:focus {
         outline: none;
@@ -66,7 +66,7 @@ body {
     text-decoration: underline; }
   
   .half .btn {
-    height: 54px;
+    height: 51px;
     padding-left: 30px;
     padding-right: 30px; }
   
